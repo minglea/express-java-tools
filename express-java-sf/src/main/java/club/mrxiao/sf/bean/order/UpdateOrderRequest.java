@@ -4,6 +4,7 @@ import club.mrxiao.sf.util.json.SfGsonBuilder;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -151,6 +152,64 @@ public class UpdateOrderRequest {
      * </pre>
      */
     private List<WaybillNoInfo> waybillNoInfoList;
+
+    /**
+     * 是否走新通用确认：1支持修改联系人，2支持改其他客户订单，默认0
+     * <pre>
+     * 是否必填： 否
+     * 默认值： 0
+     * </pre>
+     */
+    private Integer isConfirmNew = 0;
+
+    /**
+     * 收件人信息
+     * <pre>
+     * 是否必填： 否
+     * </pre>
+     */
+    private OrderContactInfoDto destContactInfo;
+
+    /**
+     * 是否通过手持终端通知顺丰收派员上门收件，1：要求，其它为不要求
+     * <pre>
+     * 是否必填： 否
+     * </pre>
+     */
+    private Integer isDocall;
+
+    /**
+     * 特殊派送类型代码（如身份验证、极效前置单）
+     * <pre>
+     * 是否必填： 否
+     * </pre>
+     */
+    private String specialDeliveryTypeCode;
+
+    /**
+     * 特殊派件具体表述（如：1:09296231 表示身份证后8位）
+     * <pre>
+     * 是否必填： 否
+     * </pre>
+     */
+    private String specialDeliveryValue;
+
+    /**
+     * 预约上门揽收时间，格式：yyyy-MM-dd HH:mm:ss
+     * <pre>
+     * 是否必填： 否
+     * </pre>
+     */
+    private LocalDateTime sendStartTm;
+
+    /**
+     * 上门揽收截止时间，格式：yyyy-MM-dd HH:mm:ss
+     * <pre>
+     * 是否必填： 否
+     * </pre>
+     */
+    private LocalDateTime pickupAppointEndtime;
+
 
     /**
      * 获取接口服务代码
