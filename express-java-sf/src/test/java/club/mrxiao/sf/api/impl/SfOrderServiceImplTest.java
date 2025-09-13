@@ -14,6 +14,7 @@ import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Guice(modules = ApiTestModule.class)
@@ -30,7 +31,7 @@ public class SfOrderServiceImplTest {
         ContactInfo sender = new ContactInfo();
         sender.setContactType(1);
         sender.setContact("**");
-        sender.setTel("***********");
+        sender.setTel("17737235204");
         sender.setCountry("CN");
         sender.setProvince("北京市");
         sender.setCity("朝阳区");
@@ -40,7 +41,7 @@ public class SfOrderServiceImplTest {
         ContactInfo receiver = new ContactInfo();
         receiver.setContactType(2);
         receiver.setContact("**");
-        receiver.setTel("***********");
+        receiver.setTel("17737235204");
         receiver.setCountry("CN");
         receiver.setProvince("北京市");
         receiver.setCity("朝阳区");
@@ -66,6 +67,7 @@ public class SfOrderServiceImplTest {
                 .remark("测试订单")
                 .contactInfoList(contactInfoList)
                 .cargoDetails(cargoDetails)
+                .sendStartTm(new Date())
                 .build();
 
         CreateOrderResponse response = sfService.getSfOrderService().createOrder(request);
