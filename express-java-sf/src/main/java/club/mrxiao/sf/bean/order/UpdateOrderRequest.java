@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -200,7 +201,7 @@ public class UpdateOrderRequest {
      * 是否必填： 否
      * </pre>
      */
-    private LocalDateTime sendStartTm;
+    private Date sendStartTm;
 
     /**
      * 上门揽收截止时间，格式：yyyy-MM-dd HH:mm:ss
@@ -208,7 +209,7 @@ public class UpdateOrderRequest {
      * 是否必填： 否
      * </pre>
      */
-    private LocalDateTime pickupAppointEndtime;
+    private Date pickupAppointEndtime;
 
 
     /**
